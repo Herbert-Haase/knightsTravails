@@ -1,4 +1,4 @@
-import { knightMovesDS } from "./datastructure.js";
+import { nextMoves } from "./nextMoves.js";
 
 function knightMoves(start, destination) {
   const paths = [];
@@ -26,9 +26,9 @@ function knightMoves(start, destination) {
     }
 
     // Sort the available moves based on their heuristic distance to the destination
-    const sortedSquares = [
-      ...knightMovesDS[currentPosition[0]][currentPosition[1]],
-    ].sort((a, b) => heuristic(a, destination) - heuristic(b, destination));
+    const sortedSquares = [...nextMoves(currentPosition)].sort(
+      (a, b) => heuristic(a, destination) - heuristic(b, destination)
+    );
 
     for (let square of sortedSquares) {
       if (
