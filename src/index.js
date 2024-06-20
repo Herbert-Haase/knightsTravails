@@ -1,2 +1,3 @@
-import "./styles/reset.css";
-import "./styles/style.css";
+import { knightMoves } from "./function.js";
+
+console.log(knightMoves([3, 3], [4, 3]));
